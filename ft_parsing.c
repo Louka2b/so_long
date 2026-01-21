@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:03:18 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/21 17:59:08 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:23:39 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static	t_map	*ft_check_line(int fd, int j, int y)
 	map->map[0] = malloc((j + 1) * sizeof (char));
 	map->map[0] = get_next_line(fd);
 	map->x = ft_strlen(map->map[i]);
-	while (ft_strlen(map->map[i]) > x)
+	while (ft_strlen(map->map[i]) > (size_t)j)
 	{
 		i++;
 		map->map[i] = malloc((j + 1) * sizeof (char));
@@ -34,7 +34,7 @@ static	t_map	*ft_check_line(int fd, int j, int y)
 	return (map);
 }
 
-static int	ft_check_len_x(int path)
+static int	ft_check_len_x(char *path)
 {
 	int	fd;
 	int	i;
@@ -48,11 +48,11 @@ static int	ft_check_len_x(int path)
 	i = ft_strlen(get_next_line(fd));
 	if (i == 0)
 		ft_error(2);
-	while (i == 0)
+	j = i;
+	while (i != 0)
 	{
-		j = i;
 		i = ft_strlen(get_next_line(fd));
-		if (i != j && i != 0)
+		if (i != 0 && i != j)
 		{
 			close(fd);
 			ft_error(3);
@@ -62,22 +62,26 @@ static int	ft_check_len_x(int path)
 	return (j);
 }
 
-static int	ft_get_len_y(char *path, int x)
+static int	ft_get_len_y(char *path)
 {
 	int	fd;
 	int	i;
+	int	y;
 
 	i = 0;
+	y = 0;
 	fd = open(path, O_RDONLY);
-	while (i > x)
+	i = ft_strlen(get_next_line(fd));
+	while ((i) > 0)
 	{
 		i = ft_strlen(get_next_line(fd));
+		y++;
 	}
 	close(fd);
-	return (i);
+	return (y);
 }
 
-int	ft_parsing(char *map_path)
+t_map	*ft_parsing(char *map_path)
 {
 	t_map	*map;
 	int		fd;
@@ -85,10 +89,10 @@ int	ft_parsing(char *map_path)
 	int		y;
 
 	x = ft_check_len_x(map_path);
-	y = ft_get_len_y(map_path, x);
-	if (x == 0)
-		ft_error(2);
+	y = ft_get_len_y(map_path);
 	fd = open(map_path, O_RDONLY);
 	map = ft_check_line(fd, x, y);
-	ft_check_map(map);
+	ft_printf("ok");
+	// ft_check_map(map);
+	return(map);
 }

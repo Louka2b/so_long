@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:36:46 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/21 15:18:43 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:11:14 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@
 # include "libft/libft.h"
 # include "mlx_linux/mlx.h"
 
-char	*get_next_line(int fd);
-void	ft_error(int i);
-int		ft_parsing(char *map);
-
 typedef struct s_map
 {
 	char	**map;
 	int		x;
 	int		y;
-}t_map;
+}	t_map;
+
+t_map	*ft_parsing(char *map);
+char	*get_next_line(int fd);
+void	ft_error(int i);
 
 
 #endif

@@ -6,7 +6,13 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:28:25 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/21 14:28:26 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:12:39 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
+
+int main(void)
+{
+	ft_parsing("test");
+}
