@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 14:36:46 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/21 15:18:43 by ldeplace         ###   ########.fr       */
+/*   Created: 2026/01/21 15:13:04 by ldeplace          #+#    #+#             */
+/*   Updated: 2026/01/21 15:15:10 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
-# ifndef MAX_FD
-#  define MAX_FD 1024
-# endif
-
-# include "libft/libft.h"
-# include "mlx_linux/mlx.h"
-
-char	*get_next_line(int fd);
-void	ft_error(int i);
-int		ft_parsing(char *map);
-
-typedef struct s_map
+void	ft_error(int i)
 {
-	char	**map;
-	int		x;
-	int		y;
-}t_map;
-
-
-#endif
+	if (i == 1)
+	{
+		perror("error map does not exist\n")
+		exit(1);
+	}
+}

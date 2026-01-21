@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:33:19 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/09 12:46:53 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/21 15:07:27 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 typedef struct s_list
 {
