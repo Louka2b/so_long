@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:03:18 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/22 12:09:06 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/22 15:05:29 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,6 @@ t_map	*ft_parsing(char *map_path)
 	y = ft_get_len_y(map_path);
 	fd = open(map_path, O_RDONLY);
 	map = ft_check_line(fd, x, y);
-	ft_check_map(map);
+	ft_check_map(&map);
 	return (map);
 }

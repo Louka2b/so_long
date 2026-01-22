@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 15:13:04 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/22 15:09:01 by ldeplace         ###   ########.fr       */
+/*   Created: 2026/01/22 14:54:58 by ldeplace          #+#    #+#             */
+/*   Updated: 2026/01/22 15:35:21 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_error(int i)
+void	ft_free_map(t_map **map, int i)
 {
-	if (i == 1)
-	{
-		perror("error map does not exist\n");
-		exit(2);
-	}
-	if (i == 2)
-	{
-		perror("empty map\n");
-		exit(2);
-	}
-	if (i == 3)
-	{
-		perror("the map is not rectangular\n");
-		exit(2);
-	}
-}
+	int	j;
 
-void	ft_error_free(int i, t_map **map)
-{
-	if (i == 1)
+	j = 0;
+	(void)i;
+	while(j != (*map)->y)
 	{
-		perror("bad wall\n");
-		ft_free_map(map, 1);
-		exit(2);
+		free((*map)->map[j]);
+		j++;
 	}
+	free((*map)->map);
+	free((*map));
 }
