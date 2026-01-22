@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:13:04 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/22 15:09:01 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/22 22:16:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ void	ft_error_free(int i, t_map **map)
 	if (i == 1)
 	{
 		perror("bad wall\n");
+		ft_free_map(map, 1);
+		exit(2);
+	}
+	if(i == 2)
+	{
+		perror("we need 1 entry only in the map\n");
 		ft_free_map(map, 1);
 		exit(2);
 	}
