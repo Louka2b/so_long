@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:03:18 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/21 18:23:39 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/22 12:09:06 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,38 @@ static	t_map	*ft_check_line(int fd, int j, int y)
 	return (map);
 }
 
+static void	ft_check_len_x_two(int *fd, char **line, char *path)
+{
+	(*fd) = open(path, O_RDONLY);
+	if ((*fd) == -1)
+		ft_error(1);
+	(*line) = get_next_line((*fd));
+	if (!(*line) || ft_strlen((*line)) == 0)
+		ft_error(2);
+}
+
 static int	ft_check_len_x(char *path)
 {
-	int	fd;
-	int	i;
-	int	j;
+	int		fd;
+	char	*line;
+	int		j;
+	int		i;
 
-	i = 0;
-	j = 0;
-	fd = open(path, O_RDONLY);
-	if (fd == -1)
-		ft_error(1);
-	i = ft_strlen(get_next_line(fd));
-	if (i == 0)
-		ft_error(2);
-	j = i;
-	while (i != 0)
+	ft_check_len_x_two(&fd, &line, path);
+	j = ft_remove_newline(line);
+	free(line);
+	line = get_next_line(fd);
+	while (line)
 	{
-		i = ft_strlen(get_next_line(fd));
-		if (i != 0 && i != j)
+		i = ft_remove_newline(line);
+		if (i != j)
 		{
+			free(line);
 			close(fd);
 			ft_error(3);
 		}
+		free(line);
+		line = get_next_line(fd);
 	}
 	close(fd);
 	return (j);
@@ -92,7 +101,6 @@ t_map	*ft_parsing(char *map_path)
 	y = ft_get_len_y(map_path);
 	fd = open(map_path, O_RDONLY);
 	map = ft_check_line(fd, x, y);
-	ft_printf("ok");
-	// ft_check_map(map);
-	return(map);
+	ft_check_map(map);
+	return (map);
 }

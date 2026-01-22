@@ -20,14 +20,14 @@ MLX_LIB        =    $(addprefix $(MLX_PATH), $(MLX_FILE))
 
 MLX_EX        =    $(MLX_LIB) $(MLX_FLAG)
 
-C_FILE        =    gnl.c main.c ft_parsing.c ft_error.c ft_check_map.c
+C_FILE        =    gnl.c main.c ft_parsing.c ft_error.c ft_check_map.c ft_so_long_u.c
 
 SRC            =    $(addprefix ./, $(C_FILE))
 
 OBJ            =    $(SRC:.c=.o)
 
 .c.o:
-	$(CC) $(FLAG) -c $< -o $@
+	$(CC) $(FLAG) -c $< -o $@ -g
 
 all: $(NAME)
 

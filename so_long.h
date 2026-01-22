@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:36:46 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/21 18:11:14 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/22 11:59:46 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ typedef struct s_map
 t_map	*ft_parsing(char *map);
 char	*get_next_line(int fd);
 void	ft_error(int i);
-
+int		ft_remove_newline(char *str);
 
 #endif
