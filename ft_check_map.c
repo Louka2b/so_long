@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 12:10:54 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/22 22:15:32 by marvin           ###   ########.fr       */
+/*   Updated: 2026/01/23 11:32:55 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,29 +42,84 @@ static void	ft_check_wall(t_map **map)
 
 static void	ft_check_entry(t_map **map)
 {
-	int i;
-	int tmp;
-	int j;
+	int	i;
+	int	tmp;
+	int	j;
 
 	tmp = 0;
 	j = 0;
-	while((*map)->map[i][j] && (*map)->y)
+	i = 0;
+	while (i < (*map)->y)
 	{
-		j = 0
-		while((*map)->map[i][j])
+		while (j < (*map)->x && (*map)->map[i][j])
 		{
-			j++;
-			if((*map)->map[i][j] == 'E')
+			if ((*map)->map[i][j] == 'S')
 				tmp++;
+			j++;
 		}
+		j = 0;
 		i++;
 	}
-	if(tmp != 1)
+	if (tmp > 1)
 		ft_error_free(2, map);
+	if (tmp < 1)
+		ft_error_free(3, map);
+}
+
+static void	ft_check_exit(t_map **map)
+{
+	int	i;
+	int	tmp;
+	int	j;
+
+	tmp = 0;
+	j = 0;
+	i = 0;
+	while (i < (*map)->y)
+	{
+		while (j < (*map)->x && (*map)->map[i][j])
+		{
+			if ((*map)->map[i][j] == 'E')
+				tmp++;
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	if (tmp > 1)
+		ft_error_free(4, map);
+	if (tmp < 1)
+		ft_error_free(5, map);
+}
+
+static void	ft_check_collec(t_map **map)
+{
+	int	i;
+	int	tmp;
+	int	j;
+
+	tmp = 0;
+	j = 0;
+	i = 0;
+	while (i < (*map)->y)
+	{
+		while (j < (*map)->x && (*map)->map[i][j])
+		{
+			if ((*map)->map[i][j] == 'C')
+				tmp++;
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	if (tmp < 1)
+		ft_error_free(6, map);
 }
 
 void	ft_check_map(t_map **map)
 {
 	ft_check_wall(map);
 	ft_check_entry(map);
+	ft_check_exit(map);
+	ft_check_collec(map);
 }

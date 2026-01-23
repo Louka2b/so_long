@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:13:04 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/22 22:16:41 by marvin           ###   ########.fr       */
+/*   Updated: 2026/01/23 11:33:25 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,22 @@ void	ft_error(int i)
 	}
 }
 
+static void	ft_error_free_two(int i, t_map **map)
+{
+	if (i == 5)
+	{
+		perror("the map dosen't have any exit\n");
+		ft_free_map(map, 1);
+		exit(2);
+	}
+	if (i == 6)
+	{
+		perror("the map dosen't have any collectible\n");
+		ft_free_map(map, 1);
+		exit(2);
+	}
+}
+
 void	ft_error_free(int i, t_map **map)
 {
 	if (i == 1)
@@ -39,10 +55,23 @@ void	ft_error_free(int i, t_map **map)
 		ft_free_map(map, 1);
 		exit(2);
 	}
-	if(i == 2)
+	if (i == 2)
 	{
 		perror("we need 1 entry only in the map\n");
 		ft_free_map(map, 1);
 		exit(2);
 	}
+	if (i == 3)
+	{
+		perror("the map dosen't have any entry\n");
+		ft_free_map(map, 1);
+		exit(2);
+	}
+	if (i == 4)
+	{
+		perror("we need 1 exit only in the map\n");
+		ft_free_map(map, 1);
+		exit(2);
+	}
+	ft_error_free_two(i, map);
 }

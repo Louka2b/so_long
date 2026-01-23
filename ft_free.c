@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 14:54:58 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/22 15:35:21 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/23 11:25:46 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_free_map(t_map **map, int i)
 
 	j = 0;
 	(void)i;
-	while(j != (*map)->y)
+	while (j != (*map)->y)
 	{
 		free((*map)->map[j]);
 		j++;
