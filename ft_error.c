@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:13:04 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/23 11:33:25 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:31:24 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ static void	ft_error_free_two(int i, t_map **map)
 	if (i == 6)
 	{
 		perror("the map dosen't have any collectible\n");
+		ft_free_map(map, 1);
+		exit(2);
+	}
+	if (i == 7)
+	{
+		perror("bad carectere in the map\n");
 		ft_free_map(map, 1);
 		exit(2);
 	}

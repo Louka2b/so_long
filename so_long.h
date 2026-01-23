@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:36:46 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/22 15:09:38 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:32:37 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_error(int i);
 void	ft_free_map(t_map **map, int i);
 void	ft_error_free(int i, t_map **map);
 void	ft_check_map(t_map **map);
+void	ft_check_caractere_ko(t_map **map);
 int		ft_remove_newline(char *str);
 
 #endif

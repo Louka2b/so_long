@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 12:10:54 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/23 11:32:55 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:33:28 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,5 @@ void	ft_check_map(t_map **map)
 	ft_check_entry(map);
 	ft_check_exit(map);
 	ft_check_collec(map);
+	ft_check_caractere_ko(map);
 }
