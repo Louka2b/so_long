@@ -6,13 +6,13 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 12:10:54 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/23 16:33:28 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/26 14:07:59 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	ft_check_wall(t_map **map)
+void	ft_check_wall(t_map **map)
 {
 	int	i;
 	int	j;
@@ -40,7 +40,7 @@ static void	ft_check_wall(t_map **map)
 	}
 }
 
-static void	ft_check_entry(t_map **map)
+void	ft_check_entry(t_map **map)
 {
 	int	i;
 	int	tmp;
@@ -66,7 +66,7 @@ static void	ft_check_entry(t_map **map)
 		ft_error_free(3, map);
 }
 
-static void	ft_check_exit(t_map **map)
+void	ft_check_exit(t_map **map)
 {
 	int	i;
 	int	tmp;
@@ -92,7 +92,7 @@ static void	ft_check_exit(t_map **map)
 		ft_error_free(5, map);
 }
 
-static void	ft_check_collec(t_map **map)
+void	ft_check_collec(t_map **map)
 {
 	int	i;
 	int	tmp;
@@ -114,13 +114,4 @@ static void	ft_check_collec(t_map **map)
 	}
 	if (tmp < 1)
 		ft_error_free(6, map);
-}
-
-void	ft_check_map(t_map **map)
-{
-	ft_check_wall(map);
-	ft_check_entry(map);
-	ft_check_exit(map);
-	ft_check_collec(map);
-	ft_check_caractere_ko(map);
 }

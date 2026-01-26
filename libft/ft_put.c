@@ -6,11 +6,11 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 11:47:56 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/21 18:13:41 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/26 14:27:26 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 size_t	ft_puthexx_fd(unsigned int nb, size_t h)
 {

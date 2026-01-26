@@ -6,11 +6,11 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 12:20:58 by ldeplace          #+#    #+#             */
-/*   Updated: 2025/11/25 11:48:25 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/26 14:27:11 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 size_t	ft_putchar(char c)
 {
