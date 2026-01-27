@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:28:25 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/22 12:06:56 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/27 19:01:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ int main(void)
 	map = ft_parsing("test.txt");
 	if (map)
 		ft_printf("Map loaded: %d x %d\n", map->x, map->y);
+	ft_initwindow(map);
 	return (0);
 }
