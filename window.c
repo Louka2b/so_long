@@ -59,7 +59,7 @@ void ft_draw_map(void *mlx, void *mlx_win, t_map *map)
     int y;
     int tile_size;
 
-    tile_size = 32;
+    tile_size = 64;
     y = 0;
     while (y < map->y)
     {
@@ -86,8 +86,8 @@ void ft_initwindow(t_map *map)
     int     window_width;
     int     window_height;
 
-    window_width = map->x * 32;
-    window_height = map->y * 32;
+    window_width = map->x * 64;
+    window_height = map->y * 64;
     mlx = mlx_init();
     mlx_win = mlx_new_window(mlx, window_width, window_height, "so_long");
     ft_load_images(mlx, map);
