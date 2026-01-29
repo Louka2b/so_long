@@ -103,17 +103,17 @@ t_mlx	*ft_initwindow(t_map *map)
 	ft_draw_map_next_next(mlx, mlx_win, map, 64);
 	mlxall = malloc(sizeof (t_mlx));
 	mlxall->mlx = mlx;
-	mlxall->mlx_WIN = mlx_win;
-
+	mlxall->mlx_win = mlx_win;
+	mlx_loop(mlx);
 	return(mlxall);
 }
 
-ft_refresh(t_map *map, void *mlx_win, void*mlx)
-{
-	while(la croix et eshap)
-	{
-		ft_draw_map(mlx, mlx_win, map);
-		ft_draw_map_next(mlx, mlx_win, map);
-		ft_draw_map_next_next(mlx, mlx_win, map, 64);
-	}
-}
+// ft_refresh(t_map *map, void *mlx_win, void*mlx)
+// {
+// 	while(la croix et esc)
+// 	{
+// 		ft_draw_map(mlx, mlx_win, map);
+// 		ft_draw_map_next(mlx, mlx_win, map);
+// 		ft_draw_map_next_next(mlx, mlx_win, map, 64);
+// 	}
+// }

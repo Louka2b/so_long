@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:28:25 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/29 19:21:41 by marvin           ###   ########.fr       */
+/*   Updated: 2026/01/29 20:01:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(void)
 {
 	t_map	*map;
-	t_mlx	*mlx;
+	// t_mlx	*mlx;
 
 	map = ft_parsing("test.txt");
 	if (map)
