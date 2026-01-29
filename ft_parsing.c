@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:03:18 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/26 14:09:20 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/29 18:44:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,25 @@ static	t_map	*ft_check_line(int fd, int j, int y)
 	t_map	*map;
 	int		i;
 
+	map = malloc(sizeof(t_map));
+	if (!map)
+		ft_error(1);
+	map->map = malloc((y + 1) * sizeof(char *));
+	if (!map->map)
+		ft_map_kaput(map);
 	i = 0;
-	map = (t_map *)malloc(sizeof(t_map));
-	map->map = (char **)malloc(y + 1);
-	map->map[0] = malloc((j + 1) * sizeof (char));
-	map->map[0] = get_next_line(fd);
-	map->x = ft_strlen(map->map[i]);
-	while (ft_strlen(map->map[i]) > (size_t)j)
+	while (i < y)
 	{
-		i++;
-		map->map[i] = malloc((j + 1) * sizeof (char));
 		map->map[i] = get_next_line(fd);
-		map->x = ft_strlen(map->map[i]);
+		if (!map->map[i])
+		{
+			ft_free_map(&map, 1);
+			exit(1);
+		}
+		i++;
 	}
+	map->map[i] = NULL;
+	map->x = j;
 	map->y = y;
 	return (map);
 }

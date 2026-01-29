@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_so_long_u.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 11:59:03 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/23 16:37:26 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/01/29 18:43:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,10 @@ void	ft_check_caractere_ko(t_map **map)
 	}
 	if (tmp > 0)
 		ft_error_free(7, map);
+}
+
+void	ft_map_kaput(t_map *map)
+{
+	free(map);
+	ft_error(1);
 }
