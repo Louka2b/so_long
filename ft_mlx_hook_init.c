@@ -28,8 +28,22 @@ int ft_refresh(t_map *map)
     return (0);
 }
 
+void    ft_check_la_map(t_map *map)
+{
+    if(map->map[map->player_y][map->player_x] == 'C')
+        map->map[map->player_y][map->player_x] = '0';
+    if(map->map[map->player_y][map->player_x] == 'E')
+        if(ft_count_collec(&map) == 0)
+        {
+            ft_printf("gg tu as fini\n");
+            mlx_destroy_window(map->mlx, map->mlx_win);
+            exit(0);
+        }
+}
+
 int handle_keypress(int keysym, t_map *map)
 {
+    ft_printf("%d\n", keysym);
     if (keysym == 65307 || keysym == 53)
     {
         mlx_destroy_window(map->mlx, map->mlx_win);
@@ -39,5 +53,18 @@ int handle_keypress(int keysym, t_map *map)
     {
         ft_press_w(map);
     }
+    if (keysym == 65364 || keysym == 115)
+    {
+        ft_press_s(map);
+    }
+    if (keysym == 97 || keysym == 65361)
+    {
+        ft_press_a(map);
+    }
+    if (keysym == 100 || keysym == 65363)
+    {
+        ft_press_d(map);
+    }
+    ft_check_la_map(map);
     return (0);
 }
