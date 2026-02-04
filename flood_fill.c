@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 13:47:29 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/28 03:52:58 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/04 18:25:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_find_start(t_map map, int *x, int *y)
 		j = 0;
 		while (j < map.x)
 		{
-			if (map.map[i][j] == 'S')
+			if (map.map[i][j] == 'P')
 			{
 				*y = i;
 				*x = j;

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:03:18 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/29 18:44:28 by marvin           ###   ########.fr       */
+/*   Updated: 2026/02/04 18:31:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static	t_map	*ft_check_line(int fd, int j, int y)
 			ft_free_map(&map, 1);
 			exit(1);
 		}
+		ft_remove_newline(map->map[i]);
 		i++;
 	}
 	map->map[i] = NULL;
@@ -80,17 +81,25 @@ static int	ft_check_len_x(char *path)
 static int	ft_get_len_y(char *path)
 {
 	int	fd;
-	int	i;
 	int	y;
+	char	*line;
 
-	i = 0;
 	y = 0;
 	fd = open(path, O_RDONLY);
-	i = ft_strlen(get_next_line(fd));
-	while ((i) > 0)
+	line = get_next_line(fd);
+	if (line && ft_strlen(line) > 0)
+		y = 1;
+	free(line);
+	while (1)
 	{
-		i = ft_strlen(get_next_line(fd));
+		line = get_next_line(fd);
+		if (!line || ft_strlen(line) == 0)
+		{
+			free(line);
+			break;
+		}
 		y++;
+		free(line);
 	}
 	close(fd);
 	return (y);

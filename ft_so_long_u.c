@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 11:59:03 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/29 18:43:39 by marvin           ###   ########.fr       */
+/*   Updated: 2026/02/04 18:31:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int	ft_remove_newline(char *str)
 
 	len = ft_strlen(str);
 	if (len > 0 && str[len - 1] == '\n')
+	{
+		str[len - 1] = '\0';
 		return (len - 1);
+	}
 	return (len);
 }
 
@@ -36,7 +39,7 @@ void	ft_check_caractere_ko(t_map **map)
 		while (j < (*map)->x && (*map)->map[i][j])
 		{
 			if ((*map)->map[i][j] != 'E' && (*map)->map[i][j] != '0'
-			&& (*map)->map[i][j] != 'S'
+			&& (*map)->map[i][j] != 'P'
 			&& (*map)->map[i][j] != '1' && (*map)->map[i][j] != 'C')
 			{
 				tmp++;

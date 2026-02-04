@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 12:10:54 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/01/26 14:07:59 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/04 18:26:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_check_entry(t_map **map)
 	{
 		while (j < (*map)->x && (*map)->map[i][j])
 		{
-			if ((*map)->map[i][j] == 'S')
+			if ((*map)->map[i][j] == 'P')
 				tmp++;
 			j++;
 		}
