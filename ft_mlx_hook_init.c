@@ -41,9 +41,16 @@ void    ft_check_la_map(t_map *map)
         }
 }
 
+static void printf_move(t_map *map)
+{
+    if(map->player_has_move == 1)
+    {
+        ft_printf("%d\n", map->player_move);
+    }
+}
 int handle_keypress(int keysym, t_map *map)
 {
-    ft_printf("%d\n", keysym);
+    map->player_has_move = 0;
     if (keysym == 65307 || keysym == 53)
     {
         mlx_destroy_window(map->mlx, map->mlx_win);
@@ -65,6 +72,7 @@ int handle_keypress(int keysym, t_map *map)
     {
         ft_press_d(map);
     }
+    printf_move(map);
     ft_check_la_map(map);
     return (0);
 }

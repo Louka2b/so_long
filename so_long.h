@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:36:46 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/04 18:59:05 by marvin           ###   ########.fr       */
+/*   Updated: 2026/02/06 14:42:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct s_map
     int     y;
     int     player_y;
     int     player_x;
+    int     player_move;
+    int     player_has_move;
     void    *floor_img;
     void    *wall_img;
 	void	*collec_img;

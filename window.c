@@ -44,6 +44,7 @@ void	ft_initwindow(t_map *map)
 	int		window_height;
 
 	window_width = map->x * 64;
+	map->player_move = 0;
 	ft_enter_player_pos(map);
 	window_height = map->y * 64;
 	mlx = mlx_init();
