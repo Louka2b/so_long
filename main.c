@@ -3,48 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:28:25 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/06 15:05:49 by marvin           ###   ########.fr       */
+/*   Updated: 2026/02/10 14:46:25 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void ft_not_ber(void)
+static void	ft_not_ber(void)
 {
 	perror("the map is not in .ber format");
 	exit(1);
 }
-static void ft_check_ber(char *str)
+
+static void	ft_check_ber(char *str)
 {
-	int i;
+	int	i;
+
 	i = ft_strlen(str);
 	if (i < 4)
 		ft_not_ber();
 	i = i - 4;
-	if(str[i] != '.')
+	if (str[i] != '.')
 		ft_not_ber();
 	i++;
-	if(str[i] != 'b')
+	if (str[i] != 'b')
 		ft_not_ber();
 	i++;
-	if(str[i] != 'e')
+	if (str[i] != 'e')
 		ft_not_ber();
 	i++;
-	if(str[i] != 'r')
+	if (str[i] != 'r')
 		ft_not_ber();
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_map	*map;
 
-	if(argc != 2)
+	if (argc != 2)
 	{
 		perror("so_long needs 1 arguments only");
-		return(0);
+		return (0);
 	}
 	ft_check_ber(argv[1]);
 	map = ft_parsing(argv[1]);

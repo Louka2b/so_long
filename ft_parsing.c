@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:03:18 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/04 18:31:45 by marvin           ###   ########.fr       */
+/*   Updated: 2026/02/10 14:52:38 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ static int	ft_check_len_x(char *path)
 
 static int	ft_get_len_y(char *path)
 {
-	int	fd;
-	int	y;
+	int		fd;
+	int		y;
 	char	*line;
 
 	y = 0;
@@ -96,7 +96,7 @@ static int	ft_get_len_y(char *path)
 		if (!line || ft_strlen(line) == 0)
 		{
 			free(line);
-			break;
+			break ;
 		}
 		y++;
 		free(line);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_so_long_u.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 11:59:03 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/04 18:59:39 by marvin           ###   ########.fr       */
+/*   Updated: 2026/02/10 14:46:14 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,5 @@ int	ft_count_collec(t_map **map)
 		j = 0;
 		i++;
 	}
-	return(tmp);
+	return (tmp);
 }
