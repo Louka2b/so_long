@@ -12,7 +12,6 @@
 
 #include "so_long.h"
 
-
 static void	ft_load_images_next_next(void *mlx, t_map *map, int width,
 		int height)
 {
