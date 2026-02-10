@@ -3,27 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_load_img.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/29 13:47:40 by marvin            #+#    #+#             */
-/*   Updated: 2026/01/29 13:47:40 by marvin           ###   ########.fr       */
+/*   Created: 2026/02/10 14:48:15 by ldeplace          #+#    #+#             */
+/*   Updated: 2026/02/10 14:48:15 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void ft_load_images_next_next(void *mlx, t_map *map, int width, int height)
+
+static void	ft_load_images_next_next(void *mlx, t_map *map, int width,
+		int height)
 {
-    map->wall2_img = mlx_xpm_file_to_image(mlx, "asset/wall2.xpm",
-		&width, &height);
+	map->wall2_img = mlx_xpm_file_to_image(mlx, "asset/wall2.xpm", &width,
+			&height);
 	if (!map->wall2_img)
 	{
 		perror("Error: cannot load wall2.xpm\n");
 		ft_free_map(&map, 1);
 		exit(1);
 	}
-	map->player_img = mlx_xpm_file_to_image(mlx, "asset/player.xpm",
-		&width, &height);
+	map->player_img = mlx_xpm_file_to_image(mlx, "asset/player.xpm", &width,
+			&height);
 	if (!map->player_img)
 	{
 		perror("Error: cannot load player.xpm\n");
@@ -58,7 +60,7 @@ static void	ft_load_images_next(void *mlx, t_map *map, int width, int height)
 		ft_free_map(&map, 1);
 		exit(1);
 	}
-    ft_load_images_next_next(mlx, map, width, height);
+	ft_load_images_next_next(mlx, map, width, height);
 }
 
 void	ft_load_images(void *mlx, t_map *map)
