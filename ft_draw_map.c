@@ -15,7 +15,6 @@
 
 #include "so_long.h"
 
-
 void	ft_draw_map_next_next(void *mlx, void *mlx_win, t_map *map,
 		int y)
 {

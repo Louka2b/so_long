@@ -15,7 +15,6 @@
 
 #include "so_long.h"
 
-
 static void	ft_enter_player_pos(t_map *map)
 {
 	int	y;
