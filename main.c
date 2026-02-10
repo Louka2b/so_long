@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:28:25 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/10 14:46:25 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/10 17:27:38 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_not_ber(void)
 {
-	perror("the map is not in .ber format");
+	ft_printf("Error\nthe map is not in .ber format");
 	exit(1);
 }
 
@@ -23,9 +23,12 @@ static void	ft_check_ber(char *str)
 	int	i;
 
 	i = ft_strlen(str);
-	if (i < 4)
+	if (i < 5)
 		ft_not_ber();
-	i = i - 4;
+	i = i - 5;
+	if (str[i] == '/')
+		ft_not_ber();
+	i++;
 	if (str[i] != '.')
 		ft_not_ber();
 	i++;
@@ -45,7 +48,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		perror("so_long needs 1 arguments only");
+		ft_printf("Error\nso_long needs 1 arguments only");
 		return (0);
 	}
 	ft_check_ber(argv[1]);
