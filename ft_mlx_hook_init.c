@@ -24,7 +24,7 @@ int	ft_refresh(t_map *map)
 	mlx_clear_window(map->mlx, map->mlx_win);
 	ft_draw_map(map->mlx, map->mlx_win, map);
 	ft_draw_map_next(map->mlx, map->mlx_win, map);
-	ft_draw_map_next_next(map->mlx, map->mlx_win, map, 64);
+	ft_draw_map_next_next(map->mlx, map->mlx_win, map, 0);
 	return (0);
 }
 
