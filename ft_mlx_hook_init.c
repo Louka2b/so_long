@@ -2,19 +2,15 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_hook_init.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2026/02/10 14:47:50 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/10 14:47:50 by ldeplace         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/12 16:44:24 by ldeplace          #+#    #+#             */
+/*   Updated: 2026/02/12 16:44:24 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 int	close_window(t_map *map)
 {
@@ -25,7 +21,7 @@ int	close_window(t_map *map)
 
 int	ft_refresh(t_map *map)
 {
-	long long time;
+	long long	time;
 
 	time = get_time_ms();
 	if (time - map->fps >= 16)
