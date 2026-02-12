@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 14:54:58 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/12 17:15:14 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/12 18:45:22 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,4 @@ void	ft_free_window(t_map *map)
 	mlx_destroy_image(map->mlx, map->start_img);
 	mlx_destroy_image(map->mlx, map->wall2_img);
 	mlx_destroy_image(map->mlx, map->player_img);
-	// free(map->mlx);
-	// free(map->mlx_win);
 }
