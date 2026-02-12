@@ -2,15 +2,19 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_hook_init.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2026/02/10 14:47:50 by ldeplace          #+#    #+#             */
 /*   Updated: 2026/02/10 14:47:50 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 
 int	close_window(t_map *map)
 {
@@ -21,7 +25,7 @@ int	close_window(t_map *map)
 
 int	ft_refresh(t_map *map)
 {
-	long long	time;
+	long long time;
 
 	time = get_time_ms();
 	if (time - map->fps >= 16)
@@ -30,6 +34,8 @@ int	ft_refresh(t_map *map)
 		ft_draw_map(map->mlx, map->mlx_win, map);
 		ft_draw_map_next(map->mlx, map->mlx_win, map);
 		ft_draw_map_next_next(map->mlx, map->mlx_win, map, 0);
+		mlx_string_put(map->mlx, map->mlx_win, 20, 20, 2000000,
+			ft_strjoin("player move : ", ft_itoa(map->player_move)));
 		map->fps = time;
 	}
 	return (0);
@@ -43,7 +49,7 @@ void	ft_check_la_map(t_map *map)
 	{
 		if (ft_count_collec(&map) == 0)
 		{
-			ft_printf("gg tu as fini\n");
+			ft_printf("bravo tu est sorti\n");
 			mlx_destroy_window(map->mlx, map->mlx_win);
 			exit(0);
 		}
