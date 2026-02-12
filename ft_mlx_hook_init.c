@@ -14,7 +14,11 @@
 
 int	close_window(t_map *map)
 {
+	ft_free_window(map);
 	mlx_destroy_window(map->mlx, map->mlx_win);
+	mlx_destroy_display(map->mlx);
+	free(map->mlx);
+	ft_free_map(&map, 0);
 	exit(0);
 	return (0);
 }
@@ -22,17 +26,22 @@ int	close_window(t_map *map)
 int	ft_refresh(t_map *map)
 {
 	long long	time;
+	char		*tmp;
+	char		*tempo;
 
 	time = get_time_ms();
 	if (time - map->fps >= 16)
 	{
+		tmp = ft_itoa(map->player_move);
+		tempo = ft_strjoin("player move : ", tmp);
 		mlx_clear_window(map->mlx, map->mlx_win);
 		ft_draw_map(map->mlx, map->mlx_win, map);
 		ft_draw_map_next(map->mlx, map->mlx_win, map);
 		ft_draw_map_next_next(map->mlx, map->mlx_win, map, 0);
-		mlx_string_put(map->mlx, map->mlx_win, 20, 20, 2000000,
-			ft_strjoin("player move : ", ft_itoa(map->player_move)));
+		mlx_string_put(map->mlx, map->mlx_win, 20, 20, 2000000, tempo);
 		map->fps = time;
+		free(tmp);
+		free(tempo);
 	}
 	return (0);
 }
@@ -46,7 +55,7 @@ void	ft_check_la_map(t_map *map)
 		if (ft_count_collec(&map) == 0)
 		{
 			ft_printf("bravo tu est sorti\n");
-			mlx_destroy_window(map->mlx, map->mlx_win);
+			close_window(map);
 			exit(0);
 		}
 	}
@@ -65,7 +74,7 @@ int	handle_keypress(int keysym, t_map *map)
 	map->player_has_move = 0;
 	if (keysym == 65307 || keysym == 53)
 	{
-		mlx_destroy_window(map->mlx, map->mlx_win);
+		close_window(map);
 		exit(0);
 	}
 	if (keysym == 119 || keysym == 65362)

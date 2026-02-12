@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:36:46 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/12 16:22:51 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/12 17:07:41 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void			ft_draw_map_next(void *mlx, void *mlx_win, t_map *map);
 void			ft_draw_map_next_next(void *mlx, void *mlx_win, t_map *map,
 					int y);
 void			ft_check_caractere_ko(t_map **map);
+void			ft_free_window(t_map *map);
 void			ft_press_w(t_map *map);
 void			ft_press_a(t_map *map);
 void			ft_press_s(t_map *map);
