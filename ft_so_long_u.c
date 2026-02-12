@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 11:59:03 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/10 14:46:14 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/12 16:22:31 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,3 +81,12 @@ int	ft_count_collec(t_map **map)
 	}
 	return (tmp);
 }
+
+long long	get_time_ms(void)
+{
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+}
+

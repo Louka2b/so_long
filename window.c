@@ -56,6 +56,7 @@ void	ft_initwindow(t_map *map)
 	ft_draw_map(mlx, mlx_win, map);
 	ft_draw_map_next(mlx, mlx_win, map);
 	ft_draw_map_next_next(mlx, mlx_win, map, 0);
+	map->fps = get_time_ms();
 	map->mlx = mlx;
 	map->mlx_win = mlx_win;
 	mlx_hook(map->mlx_win, 17, 0, close_window, map);

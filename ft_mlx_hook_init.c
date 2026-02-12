@@ -21,10 +21,17 @@ int	close_window(t_map *map)
 
 int	ft_refresh(t_map *map)
 {
-	mlx_clear_window(map->mlx, map->mlx_win);
-	ft_draw_map(map->mlx, map->mlx_win, map);
-	ft_draw_map_next(map->mlx, map->mlx_win, map);
-	ft_draw_map_next_next(map->mlx, map->mlx_win, map, 0);
+	long long	time;
+
+	time = get_time_ms();
+	if (time - map->fps >= 16)
+	{
+		mlx_clear_window(map->mlx, map->mlx_win);
+		ft_draw_map(map->mlx, map->mlx_win, map);
+		ft_draw_map_next(map->mlx, map->mlx_win, map);
+		ft_draw_map_next_next(map->mlx, map->mlx_win, map, 0);
+		map->fps = time;
+	}
 	return (0);
 }
 
