@@ -19,7 +19,7 @@ static void	ft_load_images_next_next(void *mlx, t_map *map, int width,
 			&height);
 	if (!map->wall2_img)
 	{
-		perror("Error: cannot load wall2.xpm\n");
+		ft_printf("Error\n cannot load wall2.xpm\n");
 		ft_free_map(&map, 1);
 		exit(1);
 	}
@@ -27,7 +27,7 @@ static void	ft_load_images_next_next(void *mlx, t_map *map, int width,
 			&height);
 	if (!map->player_img)
 	{
-		perror("Error: cannot load player.xpm\n");
+		ft_printf("Error\n cannot load player.xpm\n");
 		ft_free_map(&map, 1);
 		exit(1);
 	}
@@ -39,7 +39,7 @@ static void	ft_load_images_next(void *mlx, t_map *map, int width, int height)
 			&width, &height);
 	if (!map->collec_img)
 	{
-		perror("Error: cannot load collectible.xpm\n");
+		ft_printf("Error\ncannot load collectible.xpm\n");
 		ft_free_map(&map, 1);
 		exit(1);
 	}
@@ -47,7 +47,7 @@ static void	ft_load_images_next(void *mlx, t_map *map, int width, int height)
 			&height);
 	if (!map->exit_img)
 	{
-		perror("Error: cannot load exit.xpm\n");
+		ft_printf("Error\n cannot load exit.xpm\n");
 		ft_free_map(&map, 1);
 		exit(1);
 	}
@@ -55,7 +55,7 @@ static void	ft_load_images_next(void *mlx, t_map *map, int width, int height)
 			&height);
 	if (!map->start_img)
 	{
-		perror("Error: cannot load start.xpm\n");
+		ft_printf("Error\n cannot load start.xpm\n");
 		ft_free_map(&map, 1);
 		exit(1);
 	}
@@ -73,7 +73,7 @@ void	ft_load_images(void *mlx, t_map *map)
 			&height);
 	if (!map->floor_img)
 	{
-		perror("Error: Cannot load floor.xpm\n");
+		ft_printf("Error\n Cannot load floor.xpm\n");
 		ft_free_map(&map, 1);
 		exit(1);
 	}
@@ -81,7 +81,7 @@ void	ft_load_images(void *mlx, t_map *map)
 			&height);
 	if (!map->wall_img)
 	{
-		perror("Error: Cannot load wall.xpm\n");
+		ft_printf("Error\n Cannot load wall.xpm\n");
 		ft_free_map(&map, 1);
 		exit(1);
 	}
