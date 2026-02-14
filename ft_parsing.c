@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:03:18 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/10 14:52:38 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/14 19:52:34 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ static int	ft_get_len_y(char *path)
 t_map	*ft_parsing(char *map_path)
 {
 	t_map	*map;
+	t_fill	*fill;
 	int		fd;
 	int		x;
 	int		y;
@@ -121,6 +122,8 @@ t_map	*ft_parsing(char *map_path)
 	ft_check_exit(&map);
 	ft_check_collec(&map);
 	ft_check_caractere_ko(&map);
-	ft_check_can_exit(&map);
+	fill = malloc(sizeof(t_fill));
+	ft_check_can_exit(&map, fill);
+	free(fill);
 	return (map);
 }

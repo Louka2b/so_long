@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:36:46 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/12 17:07:41 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/14 19:52:43 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,15 @@ typedef struct s_map
 	long long	fps;
 }				t_map;
 
+typedef struct s_fill
+{
+	char		**visited;
+	int			x;
+	int			y;
+	int			i;
+	int			j;
+}				t_fill;
+
 long long		get_time_ms(void);
 t_map			*ft_parsing(char *map);
 void			ft_initwindow(t_map *map);
@@ -45,7 +54,8 @@ void			ft_error(int i);
 void			ft_free_map(t_map **map, int i);
 void			ft_error_free(int i, t_map **map);
 void			ft_check_map(t_map **map);
-void			ft_check_can_exit(t_map **map);
+void			ft_check_can_exit(t_map **m, t_fill *f);
+void			ft_free_calloc(t_map **map);
 void			ft_check_wall(t_map **map);
 void			ft_check_entry(t_map **map);
 void			ft_check_exit(t_map **map);
