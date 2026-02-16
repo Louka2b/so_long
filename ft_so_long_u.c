@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 11:59:03 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/12 18:46:55 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/16 14:21:24 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,6 @@ void	ft_check_caractere_ko(t_map **map)
 		ft_error_free(7, map);
 }
 
-void	ft_map_kaput(t_map *map)
-{
-	free(map);
-	ft_error(1);
-}
-
 int	ft_count_collec(t_map **map)
 {
 	int	i;
@@ -88,4 +82,28 @@ long long	get_time_ms(void)
 
 	gettimeofday(&tv, NULL);
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+}
+
+void	ft_check_collec(t_map **map)
+{
+	int	i;
+	int	tmp;
+	int	j;
+
+	tmp = 0;
+	j = 0;
+	i = 0;
+	while (i < (*map)->y)
+	{
+		while (j < (*map)->x && (*map)->map[i][j])
+		{
+			if ((*map)->map[i][j] == 'C')
+				tmp++;
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	if (tmp < 1)
+		ft_error_free(6, map);
 }

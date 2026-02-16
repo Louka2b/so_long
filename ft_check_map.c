@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 12:10:54 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/04 18:26:26 by marvin           ###   ########.fr       */
+/*   Updated: 2026/02/16 14:21:12 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_check_wall(t_map **map)
+static void	ft_check_vertical_walls(t_map **map)
 {
 	int	i;
 	int	j;
@@ -23,15 +23,25 @@ void	ft_check_wall(t_map **map)
 		j = 0;
 	while (i < (*map)->y)
 	{
+		if (!(*map)->map[i])
+			ft_error_free(1, map);
 		if ((*map)->map[i][0] != '1')
 			ft_error_free(1, map);
 		if ((*map)->map[i][j] != '1')
 			ft_error_free(1, map);
 		i++;
 	}
+}
+
+static void	ft_check_horizontal_walls(t_map **map)
+{
+	int	i;
+
 	i = 0;
 	while (i < (*map)->x)
 	{
+		if (!(*map)->map[0] || !(*map)->map[(*map)->y - 1])
+			ft_error_free(1, map);
 		if ((*map)->map[0][i] != '1')
 			ft_error_free(1, map);
 		if ((*map)->map[(*map)->y - 1][i] != '1')
@@ -92,26 +102,11 @@ void	ft_check_exit(t_map **map)
 		ft_error_free(5, map);
 }
 
-void	ft_check_collec(t_map **map)
+void	ft_check_wall(t_map **map)
 {
-	int	i;
-	int	tmp;
-	int	j;
-
-	tmp = 0;
-	j = 0;
-	i = 0;
-	while (i < (*map)->y)
-	{
-		while (j < (*map)->x && (*map)->map[i][j])
-		{
-			if ((*map)->map[i][j] == 'C')
-				tmp++;
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	if (tmp < 1)
-		ft_error_free(6, map);
+	if (!map || !*map || !(*map)->map)
+		ft_error_free(1, map);
+	ft_check_vertical_walls(map);
+	ft_check_horizontal_walls(map);
 }
+

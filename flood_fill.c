@@ -6,38 +6,83 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 13:47:29 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/13 14:05:06 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/16 14:42:18 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	ft_flood_fill(char **map, int x, int y, char **visited)
-{
-	if (map[y][x] == '1' || visited[y][x])
-		return ;
-	visited[y][x] = 1;
-	ft_flood_fill(map, x + 1, y, visited);
-	ft_flood_fill(map, x - 1, y, visited);
-	ft_flood_fill(map, x, y + 1, visited);
-	ft_flood_fill(map, x, y - 1, visited);
-}
-
-static void	ft_find_start(t_map map, int *x, int *y)
+static void	ft_init_visited(char **visited, int y, int x)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < map.y)
+	while (i < y)
 	{
 		j = 0;
-		while (j < map.x)
+		while (j < x)
 		{
-			if (map.map[i][j] == 'P')
+			visited[i][j] = 0;
+			j++;
+		}
+		i++;
+	}
+}
+
+static char	**ft_allocate_visited(t_map **map)
+{
+	char	**visited;
+	int		i;
+
+	visited = (char **)malloc((*map)->y * sizeof(char *));
+	if (!visited)
+		ft_error_free(8, map);
+	i = 0;
+	while (i < (*map)->y)
+	{
+		visited[i] = (char *)malloc((*map)->x * sizeof(char));
+		if (!visited[i])
+		{
+			while (--i >= 0)
+				free(visited[i]);
+			free(visited);
+			ft_error_free(8, map);
+		}
+		i++;
+	}
+	return (visited);
+}
+
+static void	ft_free_visited(char **visited, int y)
+{
+	int	i;
+
+	i = 0;
+	while (i < y)
+	{
+		free(visited[i]);
+		i++;
+	}
+	free(visited);
+}
+
+static void	ft_check_unreachable_items(t_map **map, char **visited)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < (*map)->y)
+	{
+		j = 0;
+		while (j < (*map)->x)
+		{
+			if (((*map)->map[i][j] == 'C' || (*map)->map[i][j] == 'E')
+				&& !visited[i][j])
 			{
-				*y = i;
-				*x = j;
+				free(visited);
+				ft_error_free(8, map);
 			}
 			j++;
 		}
@@ -50,26 +95,11 @@ void	ft_check_can_exit(t_map **map)
 	char	**visited;
 	int		x;
 	int		y;
-	int		i;
-	int		j;
 
-	visited = (char **)ft_calloc((*map)->y, sizeof(char *));
-	i = -1;
-	while (++i < (*map)->y)
-		visited[i] = (char *)ft_calloc((*map)->x + 1, sizeof(char));
+	visited = ft_allocate_visited(map);
+	ft_init_visited(visited, (*map)->y, (*map)->x);
 	ft_find_start(**map, &x, &y);
-	ft_flood_fill((*map)->map, x, y, visited);
-	i = -1;
-	while (++i < (*map)->y)
-	{
-		j = -1;
-		while (++j < (*map)->x)
-			if (((*map)->map[i][j] == 'C' || (*map)->map[i][j] == 'E')
-				&& !visited[i][j])
-				ft_error_free(8, map);
-	}
-	i = -1;
-	while (++i < (*map)->y)
-		free(visited[i]);
-	free(visited);
+	ft_flood_fill(*map, x, y, visited);
+	ft_check_unreachable_items(map, visited);
+	ft_free_visited(visited, (*map)->y);
 }
