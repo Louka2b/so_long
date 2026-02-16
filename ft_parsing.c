@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:03:18 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/14 19:52:34 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/16 12:44:39 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static	t_map	*ft_check_line(int fd, int j, int y)
 
 	map = malloc(sizeof(t_map));
 	if (!map)
-		ft_error(1);
+		exit(0);
 	map->map = malloc((y + 1) * sizeof(char *));
 	if (!map->map)
-		ft_map_kaput(map);
+		exit(0);
 	i = 0;
 	while (i < y)
 	{
@@ -86,6 +86,8 @@ static int	ft_get_len_y(char *path)
 
 	y = 0;
 	fd = open(path, O_RDONLY);
+	if (!fd)
+		exit(0);
 	line = get_next_line(fd);
 	if (line && ft_strlen(line) > 0)
 		y = 1;
@@ -108,7 +110,6 @@ static int	ft_get_len_y(char *path)
 t_map	*ft_parsing(char *map_path)
 {
 	t_map	*map;
-	t_fill	*fill;
 	int		fd;
 	int		x;
 	int		y;
@@ -122,8 +123,6 @@ t_map	*ft_parsing(char *map_path)
 	ft_check_exit(&map);
 	ft_check_collec(&map);
 	ft_check_caractere_ko(&map);
-	fill = malloc(sizeof(t_fill));
-	ft_check_can_exit(&map, fill);
-	free(fill);
+	ft_check_can_exit(&map);
 	return (map);
 }

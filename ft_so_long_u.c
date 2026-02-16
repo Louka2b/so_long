@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 11:59:03 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/12 18:46:55 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/16 12:39:21 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,6 @@ void	ft_check_caractere_ko(t_map **map)
 	}
 	if (tmp > 0)
 		ft_error_free(7, map);
-}
-
-void	ft_map_kaput(t_map *map)
-{
-	free(map);
-	ft_error(1);
 }
 
 int	ft_count_collec(t_map **map)

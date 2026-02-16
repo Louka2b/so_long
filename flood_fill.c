@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 13:47:29 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/14 19:56:23 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/16 12:33:02 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	ft_find_start(t_map map, int *x, int *y)
 	}
 }
 
-void	ft_check_can_exit(t_map **map)
+void			ft_check_can_exit(t_map **map)
 {
 	char	**visited;
 	int		x;
@@ -53,10 +53,10 @@ void	ft_check_can_exit(t_map **map)
 	int		i;
 	int		j;
 
-	visited = (char **)ft_calloc((*map)->y, sizeof(char *));
+	visited = (char **)ft_malloc_c(((*map)->y) * sizeof(char *));
 	i = -1;
 	while (++i < (*map)->y)
-		visited[i] = (char *)ft_calloc((*map)->x + 1, sizeof(char));
+		visited[i] = ft_malloc_cc(visited[i], ((*map)->x + 1) * sizeof(char));
 	ft_find_start(**map, &x, &y);
 	ft_flood_fill((*map)->map, x, y, visited);
 	i = -1;
