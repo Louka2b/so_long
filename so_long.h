@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:36:46 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/16 12:39:40 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/16 14:38:53 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void			ft_check_map(t_map **map);
 void			ft_check_can_exit(t_map **map);
 void			ft_free_calloc(t_map **map);
 void			ft_check_wall(t_map **map);
+void			ft_find_start(t_map map, int *x, int *y);
+void			ft_flood_fill(t_map *map_struct, int x, int y, char **visited);
 void			ft_check_entry(t_map **map);
 void			ft_check_exit(t_map **map);
 void			ft_check_collec(t_map **map);

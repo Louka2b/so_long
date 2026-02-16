@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:03:18 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/16 12:44:39 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/16 14:33:02 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,6 @@ static int	ft_get_len_y(char *path)
 
 	y = 0;
 	fd = open(path, O_RDONLY);
-	if (!fd)
-		exit(0);
 	line = get_next_line(fd);
 	if (line && ft_strlen(line) > 0)
 		y = 1;
