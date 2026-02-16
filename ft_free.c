@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 14:54:58 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/16 14:45:22 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:22:01 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,3 @@ void	ft_free_calloc(t_map **map)
 	ft_free_map(map, 1);
 	exit(1);
 }
-
-void	ft_free_visi(t_map *map, char **visited)
-{
-	int j;
-
-	j = 0;
-} 

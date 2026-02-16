@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 12:10:54 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/16 14:21:12 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:21:52 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,3 @@ void	ft_check_wall(t_map **map)
 	ft_check_vertical_walls(map);
 	ft_check_horizontal_walls(map);
 }
-

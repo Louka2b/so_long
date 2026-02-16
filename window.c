@@ -15,11 +15,10 @@
 
 #include "so_long.h"
 
-
 static void	ft_enter_player_pos(t_map *map)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = 0;
 	x = 0;
