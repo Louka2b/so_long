@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:36:46 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/17 12:07:24 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/17 12:31:56 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "libft/libft.h"
-# include "mlx_linux/mlx.h"
+# include "minilibx-linux/mlx.h"
 # include <sys/time.h>
 
 typedef struct s_map
