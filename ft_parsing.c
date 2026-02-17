@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 15:03:18 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/16 14:33:02 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/17 12:06:16 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static	t_map	*ft_check_line(int fd, int j, int y)
 	t_map	*map;
 	int		i;
 
-	map = malloc(sizeof(t_map));
+	map = ft_calloc(1, sizeof(t_map));
 	if (!map)
 		exit(0);
 	map->map = malloc((y + 1) * sizeof(char *));
@@ -116,6 +116,7 @@ t_map	*ft_parsing(char *map_path)
 	y = ft_get_len_y(map_path);
 	fd = open(map_path, O_RDONLY);
 	map = ft_check_line(fd, x, y);
+	close(fd);
 	ft_check_wall(&map);
 	ft_check_entry(&map);
 	ft_check_exit(&map);

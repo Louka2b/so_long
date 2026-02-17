@@ -6,7 +6,7 @@
 /*   By: ldeplace <ldeplace@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 13:47:29 by ldeplace          #+#    #+#             */
-/*   Updated: 2026/02/16 14:42:18 by ldeplace         ###   ########.fr       */
+/*   Updated: 2026/02/17 12:05:20 by ldeplace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static void	ft_check_unreachable_items(t_map **map, char **visited)
 			if (((*map)->map[i][j] == 'C' || (*map)->map[i][j] == 'E')
 				&& !visited[i][j])
 			{
-				free(visited);
+				ft_free_visited(visited, (*map)->y);
 				ft_error_free(8, map);
 			}
 			j++;
