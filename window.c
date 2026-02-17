@@ -15,11 +15,10 @@
 
 #include "so_long.h"
 
-
 static void	ft_enter_player_pos(t_map *map)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = 0;
 	x = 0;
@@ -47,6 +46,7 @@ static void	ft_initwindow_two(t_map *map, int window_width, int window_height)
 	if (!map->mlx_win)
 	{
 		ft_putstr_fd("Error: mlx_new_window failed\n", 2);
+		ft_free_map(&map, 0);
 		exit(1);
 	}
 	ft_load_images(map->mlx, map);
@@ -68,6 +68,8 @@ void	ft_initwindow(t_map *map)
 	if (!map || map->x <= 0 || map->y <= 0)
 	{
 		ft_putstr_fd("Error: Invalid map dimensions\n", 2);
+		if (map)
+			ft_free_map(&map, 0);
 		exit(1);
 	}
 	window_width = map->x * 64;
@@ -78,6 +80,7 @@ void	ft_initwindow(t_map *map)
 	if (!map->mlx)
 	{
 		ft_putstr_fd("Error: mlx_init failed\n", 2);
+		ft_free_map(&map, 0);
 		exit(1);
 	}
 	ft_initwindow_two(map, window_width, window_height);

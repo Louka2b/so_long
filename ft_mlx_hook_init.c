@@ -54,7 +54,7 @@ void	ft_check_la_map(t_map *map)
 	{
 		if (ft_count_collec(&map) == 0)
 		{
-			ft_printf("bravo tu est sorti\n");
+			ft_printf("bravo tu es sorti\n");
 			close_window(map);
 			exit(0);
 		}
