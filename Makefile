@@ -6,9 +6,16 @@ LIBFT_FILE	=	libft.a
 MLX_FILE	=	libmlx.a
 LIBFT_LIB	=	$(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
 MLX_FLAG	=	-lX11 -lXext
+# Prefer a system-installed libmlx if present, otherwise build local copy
+MLX_SYSTEM_LIBS := $(wildcard /usr/lib/libmlx.a /usr/local/lib/libmlx.a)
+ifeq ($(MLX_SYSTEM_LIBS),)
 MLX_PATH	=	./minilibx-linux/
 MLX_LIB		=	$(addprefix $(MLX_PATH), $(MLX_FILE))
 MLX_EX		=	$(MLX_LIB) $(MLX_FLAG)
+else
+MLX_LIB		=	-lmlx
+MLX_EX		=	$(MLX_LIB) $(MLX_FLAG)
+endif
 
 C_FILE		=	main.c ft_parsing.c ft_error.c ft_load_img.c ft_check_map.c ft_so_long_u.c ft_free.c flood_fill.c window.c ft_mlx_hook_init.c ft_draw_map.c ft_press.c flood_fill_two.c
 SRC			=	$(addprefix ./, $(C_FILE))

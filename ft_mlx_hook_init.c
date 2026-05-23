@@ -12,8 +12,11 @@
 
 #include "so_long.h"
 
-int	close_window(t_map *map)
+int	close_window(void *param)
 {
+	t_map *map;
+
+	map = (t_map *)param;
 	ft_free_window(map);
 	mlx_destroy_window(map->mlx, map->mlx_win);
 	mlx_destroy_display(map->mlx);
@@ -23,12 +26,14 @@ int	close_window(t_map *map)
 	return (0);
 }
 
-int	ft_refresh(t_map *map)
+int	ft_refresh(void *param)
 {
+	t_map		*map;
 	long long	time;
 	char		*tmp;
 	char		*tempo;
 
+	map = (t_map *)param;
 	time = get_time_ms();
 	if (time - map->fps >= 16)
 	{
@@ -69,8 +74,11 @@ static void	printf_move(t_map *map)
 	}
 }
 
-int	handle_keypress(int keysym, t_map *map)
+int	handle_keypress(int keysym, void *param)
 {
+	t_map *map;
+
+	map = (t_map *)param;
 	map->player_has_move = 0;
 	if (keysym == 65307 || keysym == 53)
 	{

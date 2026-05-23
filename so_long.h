@@ -68,10 +68,10 @@ void			ft_press_s(t_map *map);
 void			ft_check_la_map(t_map *map);
 void			ft_press_d(t_map *map);
 void			ft_load_images(void *mlx, t_map *map);
-int				handle_keypress(int keysym, t_map *map);
-int				close_window(t_map *map);
+int				handle_keypress(int keysym, void *param);
+int				close_window(void *param);
 int				ft_count_collec(t_map **map);
 int				ft_remove_newline(char *str);
-int				ft_refresh(t_map *map);
+int				ft_refresh(void *param);
 
 #endif
